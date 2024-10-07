@@ -1,0 +1,48 @@
+# Node modules (for both Frontend and Backend)
+Frontend/node_modules/
+Backend/node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Diagnostic reports (https://nodejs.org/api/report.html)
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directories
+coverage/
+Frontend/coverage/
+Backend/coverage/
+
+# Dependency directories
+Frontend/node_modules/
+Backend/node_modules/
+
+# dotenv environment variable files
+.env
+Frontend/.env
+Backend/.env
+
+# Build directories
+Frontend/dist/
+Backend/build/
+
+# Optional caches and temp files
+.cache/
+.parcel-cache/
+.svelte-kit/
+.nyc_output/
+.DS_Store
+*.backup.*
+*.tgz
