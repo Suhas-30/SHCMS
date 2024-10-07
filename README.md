@@ -1,12 +1,19 @@
+Your README file is well-structured and provides clear instructions for setting up the Second Hand Car Management System (SHCMS) project. Here’s a revised version with corrections and improvements for better readability and formatting:
+
+---
+
 # SHCMS Project
 
 ## Description
-This is the **Second Hand Car Management System** . The project includes both a frontend and backend, which must be set up separately.
+This is the **Second Hand Car Management System**. The project includes both a frontend and backend, which must be set up separately.
 
 ## Folder Structure
-- `Frontend/`: Contains the React app for the user interface.
-- `Backend/`: Contains the Node.js server and API.
-- `Database/`: SQL database scripts for the project.
+```
+SHCMS/
+├── Frontend/       # Contains the React app for the user interface.
+├── Backend/        # Contains the Node.js server and API.
+└── Database/       # SQL database scripts for the project.
+```
 
 ## Prerequisites
 To run this project, you need the following installed:
@@ -26,48 +33,27 @@ git clone https://github.com/Suhas-30/SHCMS.git
 Navigate to the `Frontend` directory and install the dependencies:
 ```bash
 cd Frontend
-npm create vite@latest
-npm i axios
+npm install
+npm install axios
 ```
 
-### 3. Configure `vite.config.js` for Frontend-Backend Communication
-To connect the frontend to the backend using Axios and CORS, ensure that `vite.config.js` in your `Frontend/` folder contains the following configuration:
-
-```js
-// vite.config.js
-export default {
-  server: {
-    proxy: {
-      '/previous-owner-form': {
-        target: 'http://localhost:3000',
-        changeOrigin: true,
-        secure: false,
-      },
-    },
-  },
-};
-```
-
-This proxy setting allows the frontend to send requests to the backend running on `http://localhost:3000` without encountering CORS issues.
-
+### 3. Run the Frontend 
 To run the frontend (React app) in development mode:
 ```bash
 npm run dev
 ```
-
 The frontend will be available at `http://localhost:5173`.
 
 ### 4. Set Up the Backend
 Navigate to the `Backend` directory and install the dependencies:
 ```bash
-cd Backend
-npm install express, mysql2, dotenv, cros
+cd ../Backend
+npm install express mysql2 dotenv cors
 ```
 
 ### 5. Configure the `.env` File for Database Connection
 The backend uses a `.env` file for environment variables, including database connection details. Create a `.env` file in the `Backend/` directory and add the following variables:
-
-```bash
+```plaintext
 # .env
 DB_HOST=your-database-host
 DB_USER=your-database-username
@@ -75,40 +61,19 @@ DB_PASSWORD=your-database-password
 DB_NAME=your-database-name
 PORT=3000
 ```
-
 Ensure these credentials match your local database setup. The backend will connect to the SQL database using these values.
 
-### 6. Axios Integration in Frontend
-Axios is used to send HTTP requests from the frontend to the backend. In your `Frontend` React components, you can use Axios like this:
-
-```js
-import axios from 'axios';
-
-axios.post('/previous-owner-form', {
-//   name: 'John Doe',
-//   email: 'john@example.com',
-  // other data
-}).then(response => {
-  console.log(response.data);
-}).catch(error => {
-  console.error('There was an error!', error);
-});
-```
-
-Axios will use the proxy setup in `vite.config.js` to send requests to `http://localhost:3000/previous-owner-form`.
-
-### 7. Set Up the Database
+### 6. Set Up the Database
 You need to create and configure the database using the SQL scripts provided in the `Database` folder. After creating the database, ensure the credentials in your `.env` file match the database configuration.
 
-### 8. Run the Backend Server
+### 7. Run the Backend Server
 To start the backend server, run the following command from the `Backend/` directory:
 ```bash
 node index.js
 ```
-
 The backend API will be available at `http://localhost:3000`.
 
-### 9. Run the Application
+### 8. Run the Application
 Once both the frontend and backend are set up, the application should work as follows:
 - Visit the frontend at `http://localhost:5173`.
 - The frontend will interact with the backend API available at `http://localhost:3000`.
@@ -118,4 +83,8 @@ If you want to contribute to the project, create a new branch, make your changes
 
 ---
 
-This README file now includes detailed instructions for setting up the project, using the `.env` file for database connections, configuring Axios, and adding proxy settings in `vite.config.js`.
+### Additional Notes
+- Ensure you replace `your-database-host`, `your-database-username`, `your-database-password`, and `your-database-name` in the `.env` file with your actual database configuration.
+- Make sure to configure Axios in your React app for API requests if necessary.
+
+This format enhances readability and clarity, making it easier for users to follow the setup instructions. Let me know if you need any further modifications!

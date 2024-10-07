@@ -6,6 +6,11 @@ export default defineConfig({
     server: {
         port: 5173,
         proxy: {
+            '/add-car': {  // Change this endpoint as needed
+                target: 'http://localhost:3000', // Your backend server URL
+                changeOrigin: true,
+                secure: false,
+            },
             '/previous-owner-form': {
                 target: 'http://localhost:3000',
                 changeOrigin: true,

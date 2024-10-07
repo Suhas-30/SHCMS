@@ -1,7 +1,8 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const previousOwnerRoutes = require('./routes/previousOwnerRoutes');
-const connectDB = require('./connectDB/connectDB'); // Import the connectDB function
+const addCarsRoutes = require('./routes/carRoutes')
+const connectDB = require('./connectDB/connectDB'); 
 const PORT = process.env.PORT || 3000;
 
 dotenv.config();
@@ -10,6 +11,7 @@ const app = express();
 
 app.use(express.json());
 app.use(previousOwnerRoutes); 
+app.use(addCarsRoutes)
 
 const startServer = async () => {
     try {

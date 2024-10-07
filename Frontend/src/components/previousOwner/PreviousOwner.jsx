@@ -80,7 +80,7 @@ const PreviousOwnerForm = () => {
             <label>Country:
                 <input type="text" ref={countryRef} />
             </label>
-            <Button type="submit" name="Add Owner"></Button>
+            <Button type="submit" name="Owner"></Button>
         </form>
     );
 }

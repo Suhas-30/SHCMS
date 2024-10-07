@@ -6,6 +6,7 @@ const Navigation = () => {
             <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/previous-owner-form">Previous Owner</Link></li>
+                <li><Link to="/add-car-form">Add Cars</Link></li>
             </ul>
         </>
     );
