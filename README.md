@@ -1,7 +1,7 @@
 # SHCMS Project
 
 ## Description
-This is the **Autonomous ECU Update Management System** for managing and monitoring vehicle ECU updates. The project includes both a frontend and backend, which must be set up separately.
+This is the **Second Hand Car Management System** . The project includes both a frontend and backend, which must be set up separately.
 
 ## Folder Structure
 - `Frontend/`: Contains the React app for the user interface.
