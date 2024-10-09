@@ -4,6 +4,7 @@ import Navigation from "../components/navigation/Navigation";
 import PreviousOwnerForm from "../components/previousOwner/PreviousOwner";
 import AddCars from "../components/cars/AddCars";
 import React from "react";
+import CustomerRegistration from "../components/customer/CustomerRegistration";
 
 export const routes = createBrowserRouter([
     {
@@ -30,6 +31,15 @@ export const routes = createBrowserRouter([
             </div>
         )
     },
+
+    {
+        path: '/customer-reg', element: (
+            <div>
+                <Navigation></Navigation>
+                <CustomerRegistration></CustomerRegistration>
+            </div>
+        )
+    }
 
 
 
