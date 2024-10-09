@@ -1,7 +1,3 @@
-Your README file is well-structured and provides clear instructions for setting up the Second Hand Car Management System (SHCMS) project. Here’s a revised version with corrections and improvements for better readability and formatting:
-
----
-
 # SHCMS Project
 
 ## Description
