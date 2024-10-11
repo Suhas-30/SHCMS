@@ -1,4 +1,4 @@
-import Button from "../shared/Button"
+import Button from "../../components/shared/Button"
 import { useRef  } from "react";
 import axios from "axios";
 const AddCars = ()=>{
@@ -38,7 +38,7 @@ const AddCars = ()=>{
         try{
             const response = await axios.post('/add-car-form', carData);
             console.log(response.data);
-            alert('Previous Owner added successfully');
+            alert('Car added successfully');
 
         }catch(error){
             console.error("Error in adding car details");
