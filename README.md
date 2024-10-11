@@ -15,7 +15,7 @@ SHCMS/
 To run this project, you need the following installed:
 - **Node.js** (v14 or later)
 - **npm** (comes with Node.js)
-- **SQL Database** (e.g., MySQL or PostgreSQL)
+- **SQL Database** (MySQL)
 
 ## Setup Instructions
 
