@@ -1,5 +1,5 @@
 import {useRef} from "react";
-import Button from "../shared/Button";
+import Button from "../../components/shared/Button";
 import axios from "axios";
 const PreviousOwnerForm = () => {
     const pNameRef = useRef(null);

@@ -8,6 +8,7 @@ const Navigation = () => {
                 <li><Link to="/previous-owner-form">Previous Owner</Link></li>
                 <li><Link to="/add-car-form">Add Cars</Link></li>
                 <li><Link to="/customer-reg">Customer Registration</Link></li>
+                <li><Link to= "/customer-login">Login</Link></li>
             </ul>
         </>
     );

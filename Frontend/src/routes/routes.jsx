@@ -1,10 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../Home";
 import Navigation from "../components/navigation/Navigation";
-import PreviousOwnerForm from "../components/previousOwner/PreviousOwner";
-import AddCars from "../components/cars/AddCars";
+import PreviousOwnerForm from "../pages/previousOwner/PreviousOwner";
+import AddCars from "../pages/cars/AddCars";
 import React from "react";
-import CustomerRegistration from "../components/customer/CustomerRegistration";
+import CustomerRegistration from "../pages/customer/CustomerRegistration";
+import CoustomerLogin from "../pages/customer/CustomerLogin";
+import PrivateRoute from "./PrivateRoutes";
 
 export const routes = createBrowserRouter([
     {
@@ -17,18 +19,22 @@ export const routes = createBrowserRouter([
     },
     {
         path: '/previous-owner-form', element: (
-            <div>
+            <PrivateRoute>
+                <div>
                 <Navigation></Navigation>
                 <PreviousOwnerForm></PreviousOwnerForm>
-            </div>
+                </div>
+            </PrivateRoute>
         )
     },
     {
         path: '/add-car-form', element: (
-            <div>
+            <PrivateRoute>
+                <div>
                 <Navigation></Navigation>
                 <AddCars></AddCars>
-            </div>
+                </div>
+            </PrivateRoute>
         )
     },
 
@@ -37,6 +43,14 @@ export const routes = createBrowserRouter([
             <div>
                 <Navigation></Navigation>
                 <CustomerRegistration></CustomerRegistration>
+            </div>
+        )
+    },
+    {
+        path: '/customer-login', element:(
+            <div>
+                <Navigation></Navigation>
+                <CoustomerLogin></CoustomerLogin>
             </div>
         )
     }

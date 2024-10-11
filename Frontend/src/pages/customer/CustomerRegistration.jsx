@@ -1,5 +1,5 @@
 import { useRef, useState } from "react"
-import Button from "../shared/Button"
+import Button from "../../components/shared/Button"
 import axios from "axios"
 const CustomerRegistration = ()=>{
 
