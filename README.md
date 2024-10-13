@@ -29,7 +29,7 @@ git clone https://github.com/Suhas-30/SHCMS.git
 Navigate to the `Frontend` directory and install the dependencies:
 ```bash
 cd Frontend
-npm install
+npm create vite@latest
 npm install axios
 ```
 
