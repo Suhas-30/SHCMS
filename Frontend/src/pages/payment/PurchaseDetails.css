@@ -1,0 +1,16 @@
+.purchase-details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    text-align: center; /* Center text */
+    margin: 20px; /* Optional margin for spacing */
+    min-height: 100vh; /* Ensure it takes at least the full viewport height */
+}
+
+.custom-button {
+    margin-top: 20px; /* Space between details and button */
+    display: flex; /* Ensure it can be centered */
+    justify-content: center; /* Center the button */
+    align-items: center; /* Center the button text */
+}

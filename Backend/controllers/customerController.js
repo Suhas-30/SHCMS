@@ -31,15 +31,22 @@ const customerLogin = async (req, res) => {
         if (!customer) {
             return res.status(400).json({ error: 'Customer not found' });
         }
+        console.log('Entered password:', password);
+        console.log('Stored hashed password:', customer.PASSWORD);
         const isPasswordValid = await bcrypt.compare(password, customer.PASSWORD);
         if (!isPasswordValid) {
             return res.status(400).json({ error: 'Invali password or email' })
         }
 
-        return res.status(200).json({ message: "Login successful" });
+        return res.status(200).json({ 
+            message: "Login successful",
+            customerId: customer.C_ID   
+
+         });
     } catch (error) {
         return res.status(500).json({ error: "Server error" });
     }
 }
 
 module.exports = { customerReg, customerLogin }
+

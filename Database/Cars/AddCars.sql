@@ -12,6 +12,8 @@ alter table CARS ADD column P_OWNER VARCHAR(25);
 
 alter table CARS ADD constraint FK_PREV_OWNER foreign key (P_OWNER) references previous_owner(P_ID);
 
+alter table CARS ADD column CAR_STATUS enum('sold', 'available') default 'available';
+
 
 
 

@@ -1,0 +1,46 @@
+/* AdminAuthen.css */
+.form-container {
+    max-width: 400px; /* Maximum width for the form */
+    margin: 50px auto; /* Center the form on the page */
+    padding: 20px; /* Padding inside the form */
+    border: 1px solid #ccc; /* Light border around the form */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #f9f9f9; /* Light background color */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+}
+
+.form-heading {
+    text-align: center; /* Center the heading */
+    color: #333; /* Dark color for the heading */
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+.form-container label {
+    display: block; /* Labels as block elements */
+    margin-bottom: 10px; /* Space below each label */
+    font-weight: bold; /* Bold font for labels */
+}
+
+.form-container input[type="text"],
+.form-container input[type="password"] {
+    width: 100%; /* Full width for inputs */
+    padding: 10px; /* Padding inside inputs */
+    margin-bottom: 20px; /* Space below inputs */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 4px; /* Rounded corners */
+    transition: border-color 0.3s; /* Smooth transition for focus */
+}
+
+.form-container input[type="text"]:focus,
+.form-container input[type="password"]:focus {
+    border-color: #007bff; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+.form-container button {
+    width: 100%; /* Full width for the button */
+    padding: 10px; /* Padding inside the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin-top: 10px; /* Space above the button */
+}
+

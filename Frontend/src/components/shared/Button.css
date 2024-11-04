@@ -1,0 +1,23 @@
+.custom-button {
+    background-color: #f0f0f0;  /* Light gray background */
+    border: 1px solid #dcdcdc;  /* Soft gray border */
+    color: #333333;             /* Darker text color */
+    padding: 10px 20px;         /* Padding for comfort */
+    text-align: center;         /* Centered text */
+    font-size: 16px;            /* Comfortable font size */
+    font-family: Arial, sans-serif; /* Classic font */
+    margin: 5px;                /* Spacing around */
+    cursor: pointer;            /* Pointer on hover */
+    border-radius: 4px;         /* Slightly rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth color transition */
+}
+
+.custom-button:hover {
+    background-color: #e0e0e0;  /* Slightly darker gray on hover */
+    color: #000000;             /* Darker text on hover */
+}
+
+.custom-button:active {
+    background-color: #cccccc;  /* Even darker gray when clicked */
+    border-color: #b3b3b3;      /* Subtle border color change */
+}
