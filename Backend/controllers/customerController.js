@@ -31,22 +31,33 @@ const customerLogin = async (req, res) => {
         if (!customer) {
             return res.status(400).json({ error: 'Customer not found' });
         }
+<<<<<<< HEAD
         console.log('Entered password:', password);
         console.log('Stored hashed password:', customer.PASSWORD);
+=======
+>>>>>>> 7a9e8950d969671ba9843492bb92583c860f6b9e
         const isPasswordValid = await bcrypt.compare(password, customer.PASSWORD);
         if (!isPasswordValid) {
             return res.status(400).json({ error: 'Invali password or email' })
         }
 
+<<<<<<< HEAD
         return res.status(200).json({ 
             message: "Login successful",
             customerId: customer.C_ID   
 
          });
+=======
+        return res.status(200).json({ message: "Login successful" });
+>>>>>>> 7a9e8950d969671ba9843492bb92583c860f6b9e
     } catch (error) {
         return res.status(500).json({ error: "Server error" });
     }
 }
 
+<<<<<<< HEAD
 module.exports = { customerReg, customerLogin }
 
+=======
+module.exports = { customerReg, customerLogin }
+>>>>>>> 7a9e8950d969671ba9843492bb92583c860f6b9e

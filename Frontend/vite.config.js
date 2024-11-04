@@ -27,6 +27,7 @@ export default defineConfig({
                 secure:false,
             },
 
+<<<<<<< HEAD
             '/cars': {
                 target: 'http://localhost:3000',
                 changeOrigin: true,
@@ -45,6 +46,8 @@ export default defineConfig({
                 secure:false,
             }
 
+=======
+>>>>>>> 7a9e8950d969671ba9843492bb92583c860f6b9e
         },
     },
 });

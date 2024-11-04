@@ -7,12 +7,16 @@ import React from "react";
 import CustomerRegistration from "../pages/customer/CustomerRegistration";
 import CoustomerLogin from "../pages/customer/CustomerLogin";
 import PrivateRoute from "./PrivateRoutes";
+<<<<<<< HEAD
 import Payment from "../pages/payment/Payment";
 import PurchaseDetails from "../pages/payment/PurchaseDetails";
 import KnowDetails from "../pages/customer/KnowDetails";
 import AdminAuthen from "../Admin/AdminAuthen";
 import AdminNav from "../Admin/AdminNav";
 import SalesHistory from "../Admin/SalesHistory";
+=======
+
+>>>>>>> 7a9e8950d969671ba9843492bb92583c860f6b9e
 export const routes = createBrowserRouter([
     {
         path: '/', element: (
@@ -24,19 +28,37 @@ export const routes = createBrowserRouter([
     },
     {
         path: '/previous-owner-form', element: (
+<<<<<<< HEAD
                 <div>
                 <AdminNav></AdminNav>
                 <PreviousOwnerForm></PreviousOwnerForm>
                 </div>
+=======
+            <PrivateRoute>
+                <div>
+                <Navigation></Navigation>
+                <PreviousOwnerForm></PreviousOwnerForm>
+                </div>
+            </PrivateRoute>
+>>>>>>> 7a9e8950d969671ba9843492bb92583c860f6b9e
         )
     },
     {
         path: '/add-car-form', element: (
+<<<<<<< HEAD
                 <div>
                 <AdminNav></AdminNav>
                 <AddCars></AddCars>
                 </div>
 
+=======
+            <PrivateRoute>
+                <div>
+                <Navigation></Navigation>
+                <AddCars></AddCars>
+                </div>
+            </PrivateRoute>
+>>>>>>> 7a9e8950d969671ba9843492bb92583c860f6b9e
         )
     },
 
@@ -55,6 +77,7 @@ export const routes = createBrowserRouter([
                 <CoustomerLogin></CoustomerLogin>
             </div>
         )
+<<<<<<< HEAD
     },
     {
         path:'/payment',
@@ -99,5 +122,7 @@ export const routes = createBrowserRouter([
                 <SalesHistory></SalesHistory>
             </div>
         )
+=======
+>>>>>>> 7a9e8950d969671ba9843492bb92583c860f6b9e
     }
 ])
