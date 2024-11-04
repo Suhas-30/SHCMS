@@ -25,22 +25,19 @@ export const routes = createBrowserRouter([
     },
     {
         path: '/previous-owner-form', element: (
-            <PrivateRoute>
                 <div>
-                    <Navigation />
+                <AdminNav></AdminNav>
                     <PreviousOwnerForm />
                 </div>
-            </PrivateRoute>
         )
     },
     {
         path: '/add-car-form', element: (
-            <PrivateRoute>
+
                 <div>
-                    <Navigation />
+                    <AdminNav></AdminNav>
                     <AddCars />
                 </div>
-            </PrivateRoute>
         )
     },
     {
