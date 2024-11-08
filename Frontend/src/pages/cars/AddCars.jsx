@@ -1,7 +1,8 @@
+// AddCars.jsx
 import Button from "../../components/shared/Button";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import axios from "axios";
-import "./AddCars.css"; // Import the CSS file
+import "./AddCars.css";
 
 const AddCars = () => {
     const carNameRef = useRef(null);
@@ -10,6 +11,11 @@ const AddCars = () => {
     const carRNRef = useRef(null);
     const carPriceRef = useRef(null);
     const previousOwnerIDRef = useRef(null);
+    const [carImage, setCarImage] = useState(null);
+
+    const handleImageChange = (e) => {
+        setCarImage(e.target.files[0]);
+    };
 
     const handleAddingCars = async (e) => {
         e.preventDefault();
@@ -21,24 +27,24 @@ const AddCars = () => {
         const carPrice = carPriceRef.current.value;
         const previousOwnerID = previousOwnerIDRef.current.value;
 
-        // Check for empty fields
-        if (!carName || !carModel || !modelYear || !carRN || !carPrice || !previousOwnerID) {
-            alert('All fields are required');
+        if (!carName || !carModel || !modelYear || !carRN || !carPrice || !previousOwnerID || !carImage) {
+            alert('All fields are required, including the image.');
             return;
         }
 
-        // Prepare the form data
-        const carData = {
-            name: carName,
-            model: carModel,
-            year: modelYear,
-            rn: carRN,
-            price: carPrice,
-            p_id: previousOwnerID
-        };
+        const formData = new FormData();
+        formData.append('name', carName);
+        formData.append('model', carModel);
+        formData.append('year', modelYear);
+        formData.append('rn', carRN);
+        formData.append('price', carPrice);
+        formData.append('p_id', previousOwnerID);
+        formData.append('image', carImage);  // Add the image file
 
         try {
-            const response = await axios.post('http://localhost:3000/add-car-form', carData);
+            const response = await axios.post('http://localhost:3000/add-car-form', formData, {
+                headers: { 'Content-Type': 'multipart/form-data' }
+            });
             console.log(response.data);
             alert('Car added successfully');
         } catch (error) {
@@ -64,7 +70,7 @@ const AddCars = () => {
                 </label>
 
                 <label className="form-label">Car RN:
-                    <input type="text" ref={carRNRef} required className="form-input" min="1886" max={new Date().getFullYear()} />
+                    <input type="text" ref={carRNRef} required className="form-input" />
                 </label>
 
                 <label className="form-label">Price:
@@ -73,6 +79,10 @@ const AddCars = () => {
 
                 <label className="form-label">Previous Owner ID:
                     <input type="text" ref={previousOwnerIDRef} required className="form-input" />
+                </label>
+
+                <label className="form-label">Car Image:
+                    <input type="file" onChange={handleImageChange} required className="form-input" />
                 </label>
 
                 <Button type="submit" name="Add Car" className="submit-button" />

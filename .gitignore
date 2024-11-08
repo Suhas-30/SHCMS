@@ -37,6 +37,7 @@ Backend/.env
 # Build directories
 Frontend/dist/
 Backend/build/
+Backend/uploads/
 
 # Optional caches and temp files
 .cache/

@@ -16,6 +16,13 @@
     text-align: center; /* Center align the title */
 }
 
+.total-sales {
+    font-size: 18px; /* Font size for total sales text */
+    color: #4CAF50; /* Green color for total sales */
+    margin-bottom: 20px; /* Space below the total sales text */
+    text-align: center; /* Center align the text */
+}
+
 .no-sales-message {
     font-size: 18px; /* Paragraph font size */
     color: #666; /* Paragraph color */

@@ -44,7 +44,8 @@ The frontend will be available at `http://localhost:5173`.
 Navigate to the `Backend` directory and install the dependencies:
 ```bash
 cd ../Backend
-npm install express mysql2 dotenv cors
+npm install express mysql2 dotenv cors multer
+create folder "uploads" manually 
 ```
 
 ### 5. Configure the `.env` File for Database Connection
@@ -73,6 +74,10 @@ The backend API will be available at `http://localhost:3000`.
 Once both the frontend and backend are set up, the application should work as follows:
 - Visit the frontend at `http://localhost:5173`.
 - The frontend will interact with the backend API available at `http://localhost:3000`.
+
+### 9. Admin Credentials 
+username-admin 
+password-admin@123
 
 ## Contributing
 If you want to contribute to the project, create a new branch, make your changes, and submit a pull request.

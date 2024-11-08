@@ -14,6 +14,9 @@ alter table CARS ADD constraint FK_PREV_OWNER foreign key (P_OWNER) references p
 
 alter table CARS ADD column CAR_STATUS enum('sold', 'available') default 'available';
 
+ALTER TABLE CARS ADD COLUMN IMAGE_URL VARCHAR(255);
+
+
 
 
 

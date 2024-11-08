@@ -1,19 +1,33 @@
-const connectDB = require('../connectDB/connectDB')
+const connectDB = require('../connectDB/connectDB');
 
-
-const getSales = async ()=>{
+const getSales = async () => {
     const connection = await connectDB();
-    const getQuery = 'SELECT DATE_OF_SALE, CAR_ID, PAY_ID, C_ID FROM SALES_HISTORY';
+    const query = 'SELECT DATE_OF_SALE, CAR_ID, PAY_ID, C_ID FROM SALES_HISTORY';
 
-    try{
-        const [rows] = await connection.execute(getQuery);
+    try {
+        const [rows] = await connection.execute(query);
         return rows;
-    }catch(error){
+    } catch (error) {
         console.error("Error in getSales", error);
-    }finally{
+        throw error;
+    } finally {
         await connection.end();
     }
+};
 
-}
+const getTotalSales = async () => {
+    const connection = await connectDB();
+    const query = 'SELECT count_total_sales() AS total_sales'; 
 
-module.exports = {getSales}
+    try {
+        const [rows] = await connection.execute(query);
+        return rows[0].total_sales; 
+    } catch (error) {
+        console.error("Error in getTotalSales", error);
+        throw error;
+    } finally {
+        await connection.end();
+    }
+};
+
+module.exports = { getSales, getTotalSales };
