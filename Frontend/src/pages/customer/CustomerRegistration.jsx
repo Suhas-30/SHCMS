@@ -22,6 +22,7 @@ const CustomerRegistration = () => {
 
     const handleRegistrationCu = async (e) => {
         e.preventDefault();
+        
         const cuName = cuNameRef.current.value;
         const cuPhone = cuPhRef.current.value;
         const cuEmail = cuEmailRef.current.value;
@@ -62,7 +63,7 @@ const CustomerRegistration = () => {
 
     const handleButtonClick = () => {
         if (isRegistered) {
-            navigate('/customer-login'); 
+            navigate('/customer-login');
         }
     };
 
@@ -71,7 +72,6 @@ const CustomerRegistration = () => {
             <h1 className="registration-title">Customer Registration</h1>
             {errorMessage && <p className="error-message">{errorMessage}</p>}
             {successMessage && <p className="success-message">{successMessage}</p>}
-
             <form onSubmit={handleRegistrationCu} className="registration-form">
                 <label className="form-label">Name:
                     <input type="text" ref={cuNameRef} required className="form-input" />
@@ -97,7 +97,6 @@ const CustomerRegistration = () => {
                 <label className="form-label">Password:
                     <input type="password" ref={cuPasswordRef} required className="form-input" />
                 </label>
-
                 <Button 
                     type="button" 
                     name={isRegistered ? "Go to Login" : "Register"} 

@@ -1,10 +1,10 @@
-// AddCars.jsx
 import Button from "../../components/shared/Button";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import "./AddCars.css";
 
 const AddCars = () => {
+    const formRef = useRef(null);
     const carNameRef = useRef(null);
     const carModelRef = useRef(null);
     const modelYearRef = useRef(null);
@@ -12,6 +12,9 @@ const AddCars = () => {
     const carPriceRef = useRef(null);
     const previousOwnerIDRef = useRef(null);
     const [carImage, setCarImage] = useState(null);
+    const [submitted, setSubmitted] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
+    const [successMessage, setSuccessMessage] = useState("");
 
     const handleImageChange = (e) => {
         setCarImage(e.target.files[0]);
@@ -28,7 +31,7 @@ const AddCars = () => {
         const previousOwnerID = previousOwnerIDRef.current.value;
 
         if (!carName || !carModel || !modelYear || !carRN || !carPrice || !previousOwnerID || !carImage) {
-            alert('All fields are required, including the image.');
+            setErrorMessage('All fields are required, including the image.');
             return;
         }
 
@@ -46,17 +49,34 @@ const AddCars = () => {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
             console.log(response.data);
-            alert('Car added successfully');
+            setSuccessMessage('Car added successfully');
+            setErrorMessage('');
+            setSubmitted(true);
         } catch (error) {
             console.error("Error in adding car details", error);
-            alert('Failed to add car.');
+            setErrorMessage('Failed to add car.');
+            setSuccessMessage('');
         }
     };
+
+    useEffect(() => {
+        if (submitted) {
+            formRef.current.reset();
+            setTimeout(() => {
+                setSuccessMessage('');
+            }, 3000);
+            setSubmitted(false);
+            window.scrollTo(0, 0); 
+        }
+    }, [submitted]);
 
     return (
         <div className="form-container">
             <h1>Add Car</h1>
-            <form onSubmit={handleAddingCars} className="form">
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
+            {successMessage && <p className="success-message">{successMessage}</p>}
+
+            <form ref={formRef} onSubmit={handleAddingCars} className="form">
                 <label className="form-label">Car Name:
                     <input type="text" ref={carNameRef} required className="form-input" />
                 </label>

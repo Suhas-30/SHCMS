@@ -1,9 +1,10 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import Button from "../../components/shared/Button";
 import axios from "axios";
 import './PreviousOwner.css';
 
 const PreviousOwnerForm = () => {
+    const formRef = useRef(null);
     const pNameRef = useRef(null);
     const phRef = useRef(null);
     const emailRef = useRef(null);
@@ -14,6 +15,7 @@ const PreviousOwnerForm = () => {
 
     const [errorMessage, setErrorMessage] = useState("");
     const [successMessage, setSuccessMessage] = useState("");
+    const [submitted, setSubmitted] = useState(false);
 
     const handleAddingOwners = async (e) => {
         e.preventDefault();
@@ -47,6 +49,7 @@ const PreviousOwnerForm = () => {
             console.log(response.data);
             setSuccessMessage("Previous owner added successfully.");
             setErrorMessage("");
+            setSubmitted(true);
         } catch (error) {
             console.error('Error adding previous owner:', error);
             setErrorMessage("Failed to add previous owner.");
@@ -54,13 +57,24 @@ const PreviousOwnerForm = () => {
         }
     };
 
+    useEffect(() => {
+        if (submitted) {
+            formRef.current.reset();
+            setTimeout(() => {
+                setSuccessMessage("");
+            }, 3000);
+            setSubmitted(false);
+            window.scrollTo(0, 0); 
+        }
+    }, [submitted]);
+
     return (
         <div className="form-container">
             <h1>Previous Owner Registration</h1>
             {errorMessage && <p className="error-message">{errorMessage}</p>}
             {successMessage && <p className="success-message">{successMessage}</p>}
 
-            <form onSubmit={handleAddingOwners} className="form">
+            <form ref={formRef} onSubmit={handleAddingOwners} className="form">
                 <label className="form-label">Name:
                     <input type="text" ref={pNameRef} required className="form-input" />
                 </label>
