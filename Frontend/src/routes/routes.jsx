@@ -13,6 +13,7 @@ import KnowDetails from "../pages/customer/KnowDetails";
 import AdminAuthen from "../Admin/AdminAuthen";
 import AdminNav from "../Admin/AdminNav";
 import SalesHistory from "../Admin/SalesHistory";
+import PreviousOwnerDetails from "../Admin/PreviousOwnerDetails";
 
 export const routes = createBrowserRouter([
     {
@@ -92,6 +93,14 @@ export const routes = createBrowserRouter([
             <div>
                 <AdminNav />
                 <SalesHistory />
+            </div>
+        )
+    },
+    {
+        path: '/previous-owner-details', element: (
+            <div>
+                <AdminNav/>
+                <PreviousOwnerDetails/>
             </div>
         )
     }

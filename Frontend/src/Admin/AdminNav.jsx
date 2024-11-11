@@ -22,6 +22,11 @@ const AdminNav = () => {
                 <li className="nav-item">
                     <Link to="/sales" className="nav-link">Sales History</Link>
                 </li>
+
+                <li className="nav-item">
+                    <Link to="/previous-owner-details" className="nav-link">Owners Details</Link>
+                </li>
+
             </ul>
         </nav>
     );

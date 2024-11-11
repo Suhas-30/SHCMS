@@ -19,7 +19,7 @@ const SalesHistory = () => {
 
         const fetchTotalSales = async () => {
             try {
-                const response = await axios.get("http://localhost:3000/total-sales");
+                const response = await axios.get("/total-sales");
                 setTotalSales(response.data.total_sales);
             } catch (error) {
                 console.log("Error in fetching total sales", error);

@@ -35,4 +35,16 @@ const insertPreviousOwner = async (owner)=>{
     
 }
 
-module.exports = {generatePreviousOwnerId, insertPreviousOwner}
+const fetchPreviousOwners = async () => {
+    const connection = await connectDB(); 
+    try {
+      const query = 'SELECT P_ID, P_NAME, EMAIL FROM PREVIOUS_OWNER';
+      const [rows] = await connection.query(query);
+      console.log('Fetched owners from database:', rows); 
+      return rows;
+    } finally {
+      await connection.end();
+    }
+  };
+
+module.exports = {generatePreviousOwnerId, insertPreviousOwner, fetchPreviousOwners}

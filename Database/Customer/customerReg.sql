@@ -6,9 +6,6 @@ EMAIL varchar(50),
 PASSWORD VARCHAR(50)
 );
 
-alter TABLE CUSTOMER ADD column CAR_ID varchar(50);
-
-ALTER TABLE CUSTOMER ADD  constraint FK_CAR_ID foreign key (CAR_ID) references CARS(CAR_ID);
 
 create table c_address (
 CADDRESS_ID INT auto_increment primary KEY,
