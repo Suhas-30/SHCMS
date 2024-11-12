@@ -1,7 +1,7 @@
 // SalesHistory.jsx
 import axios from "axios";
 import { useEffect, useState } from "react";
-import "./SalesHistory.css"; // Import the CSS file
+import "./SalesHistory.css";
 
 const SalesHistory = () => {
     const [sales, setSales] = useState([]);
@@ -10,7 +10,8 @@ const SalesHistory = () => {
     useEffect(() => {
         const fetchSales = async () => {
             try {
-                const response = await axios.get("http://localhost:3000/sales");
+                const response = await axios.get("/sales");
+                console.log("Sales data:", response.data); // Log sales data
                 setSales(response.data);
             } catch (error) {
                 console.log("Error in fetching the sales", error);
@@ -20,6 +21,7 @@ const SalesHistory = () => {
         const fetchTotalSales = async () => {
             try {
                 const response = await axios.get("/total-sales");
+                console.log("Total sales response:", response.data); 
                 setTotalSales(response.data.total_sales);
             } catch (error) {
                 console.log("Error in fetching total sales", error);
@@ -30,7 +32,6 @@ const SalesHistory = () => {
         fetchTotalSales();
     }, []);
 
-    // Function to format the date
     const formatDate = (dateString) => {
         const date = new Date(dateString);
         return `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
