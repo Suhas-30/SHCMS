@@ -41,12 +41,12 @@ export default defineConfig({
                 changeOrigin: true,
                 secure: false,
             },
-            '/previous-owner-details':{
+            '/previous-owner-details': {
                 target: 'http://localhost:3000',
                 changeOrigin: true,
-                secure: false, 
+                secure: false,
             },
-            '/total-sales':{
+            '/total-sales': {
                 target: 'http://localhost:3000',
                 changeOrigin: true,
                 secure: false,
